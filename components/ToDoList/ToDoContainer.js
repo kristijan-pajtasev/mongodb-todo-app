@@ -1,8 +1,10 @@
+import ToDoList from "./ToDoList";
+
 const toDos = []
 
 function ToDoContainer() {
     return (
-        <div>ToDos</div>
+        <ToDoList todos={toDos} />
     )
 }
 

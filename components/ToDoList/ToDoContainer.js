@@ -1,6 +1,12 @@
 import ToDoList from "./ToDoList";
 
-const toDos = []
+const toDos = [
+    {
+        text: "hello world",
+        isCompleted: true,
+        id: 123
+    }
+]
 
 function ToDoContainer() {
     return (

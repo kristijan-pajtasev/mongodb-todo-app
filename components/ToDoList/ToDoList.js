@@ -5,7 +5,7 @@ function ToDoList({todos}) {
         return todos.map(todo => {
             return (
                 <li key={`todo-${todo.id}`}>
-                    <ToDoItem todo={todo}/>
+                    <ToDoItem {...todo}/>
                 </li>
             )
         })

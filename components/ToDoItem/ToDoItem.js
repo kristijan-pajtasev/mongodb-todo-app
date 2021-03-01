@@ -1,6 +1,10 @@
-function ToDoItem() {
+function ToDoItem({text, id, isCompleted}) {
     return (
-        <div>to do item</div>
+        <div>
+            <div>{text}</div>
+            <div>{id}</div>
+            <div>{isCompleted ? "completed" : "not completed"}</div>
+        </div>
     )
 }
 

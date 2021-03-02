@@ -17,6 +17,7 @@ function ToDoList({todos}) {
             <ul className={styles.ToDoList}>
                 {getToDoItems(todos)}
             </ul>
+            <button className={styles.AddToDoItemButton}>Add Item</button>
         </div>
     )
 }

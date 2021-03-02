@@ -5,6 +5,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 60px;
+  position: relative;
 }
 
 .ToDoListItemContainer {
@@ -12,4 +14,12 @@
   justify-content: space-between;
   width: 250px;
   height: 250px;
+}
+
+.AddToDoItemButton {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  bottom: 0;
 }

@@ -1,4 +1,5 @@
 import ToDoItem from "../ToDoItem";
+import styles from './todolist.module.scss';
 
 function ToDoList({todos}) {
     function getToDoItems(todos) {
@@ -13,7 +14,7 @@ function ToDoList({todos}) {
 
     return (
         <div>
-            <ul>
+            <ul className={styles.ToDoList}>
                 {getToDoItems(todos)}
             </ul>
         </div>

@@ -1,4 +1,15 @@
 .ToDoList {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.ToDoListItemContainer {
+  margin: 10px 10px;
+  justify-content: space-between;
+  width: 250px;
+  height: 250px;
 }

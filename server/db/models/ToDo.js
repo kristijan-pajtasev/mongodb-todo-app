@@ -1,14 +1,11 @@
 const mongoose = require("mongoose")
 
-const ToDo = (function() {
-    const todo = new mongoose.Schema({
-        text: String,
-        isCompleted: Boolean,
-    })
+const todo = new mongoose.Schema({
+    text: String,
+    isCompleted: Boolean,
+})
 
-    const ToDo = mongoose.model("todo", todo);
-    return ToDo;
-})();
-
+mongoose.models = {};
+const ToDo = mongoose.model("Todo", todo);
 
 export default ToDo

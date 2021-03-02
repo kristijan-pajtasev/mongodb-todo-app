@@ -1,14 +1,14 @@
-import {getTodos} from '../../server/controller/ToDoController'
-import dbConnect from "../../utils/dbConnect";
+import connectDB from "../../middleware/mongodb";
+import ToDo from "../../server/db/models/ToDo";
 
-export default async function handler (req, res) {
+async function handler (req, res) {
     if (req.method === 'GET') {
-        await dbConnect()
-        getTodos().then(todos => {
-                res.status(200).json(todos);
-            },
-            err => res.status(400).json(err))
+        const todos = await ToDo.find({});
+        res.status(200).json({todos});
     } else {
+        console.log(req.body)
         res.status(200).json({});
     }
 }
+
+export default connectDB(handler);

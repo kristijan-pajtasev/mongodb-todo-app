@@ -2,6 +2,8 @@ import ToDoItem from "../ToDoItem";
 import styles from './todolist.module.scss';
 import {useState} from "react";
 import Modal from "../Modal";
+import ToDoContainer from "./index";
+import CreateTodo from "../CreateTodo";
 
 function ToDoList({todos}) {
     const [showAddModal, setShowAddModal] = useState(false);
@@ -21,8 +23,12 @@ function ToDoList({todos}) {
             <ul className={styles.ToDoList}>
                 {getToDoItems(todos)}
             </ul>
-            {showAddModal && <Modal
-                close={() => setShowAddModal(false)} />}
+            {showAddModal && (
+                <Modal
+                close={() => setShowAddModal(false)} >
+                    <CreateTodo />
+                </Modal>
+            )}
             <button onClick={() => setShowAddModal(!showAddModal)}
                     className={styles.AddToDoItemButton}>Add Item</button>
         </div>

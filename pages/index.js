@@ -13,7 +13,6 @@ export default function Home() {
 
       <main className={styles.main}>
           <ToDoContainer />
-          <CreateTodo />
       </main>
 
       <footer className={styles.footer}>

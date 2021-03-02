@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const todo = new mongoose.Schema({
     text: String,
     isCompleted: Boolean,
+    created: Number
 })
 
 mongoose.models = {};

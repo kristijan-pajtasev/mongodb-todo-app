@@ -7,6 +7,14 @@ async function handler (req, res) {
         res.status(200).json({todos});
     } else {
         console.log(req.body)
+        const todoData = req.body;
+        const todo = new ToDo({
+            ...todoData,
+            isCompleted: false,
+            created: new Date().getTime()
+        })
+        const createdTodo = await todo.save();
+        console.log(createdTodo)
         res.status(200).json({});
     }
 }

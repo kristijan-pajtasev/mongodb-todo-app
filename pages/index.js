@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import ToDoContainer from "../components/ToDoList";
+import CreateTodo from "../components/CreateTodo";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
           <ToDoContainer />
+          <CreateTodo />
       </main>
 
       <footer className={styles.footer}>

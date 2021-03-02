@@ -1,6 +1,7 @@
-function Modal({children}) {
+import styles from './modal.module.scss'
+function Modal({children, close}) {
     return (
-        <div>
+        <div className={styles.Module} onClick={close}>
         modal
         </div>
     )

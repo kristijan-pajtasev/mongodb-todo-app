@@ -1,7 +1,11 @@
 import ToDoItem from "../ToDoItem";
 import styles from './todolist.module.scss';
+import {useState} from "react";
+import Modal from "../Modal";
 
 function ToDoList({todos}) {
+    const [showAddModal, setShowAddModal] = useState(false);
+
     function getToDoItems(todos) {
         return todos.map(todo => {
             return (
@@ -17,7 +21,10 @@ function ToDoList({todos}) {
             <ul className={styles.ToDoList}>
                 {getToDoItems(todos)}
             </ul>
-            <button className={styles.AddToDoItemButton}>Add Item</button>
+            {showAddModal && <Modal
+                close={() => setShowAddModal(false)} />}
+            <button onClick={() => setShowAddModal(!showAddModal)}
+                    className={styles.AddToDoItemButton}>Add Item</button>
         </div>
     )
 }

@@ -3,7 +3,11 @@ import ToDo from "../../server/db/models/ToDo";
 
 async function handler (req, res) {
     if (req.method === 'GET') {
-        const todos = await ToDo.find({});
+        const todos = (await ToDo.find({}).exec())
+            .map(({_id, text, created, isCompleted}) => ({
+                id: _id,
+                    text, isCompleted, created
+            }));
         res.status(200).json({todos});
     } else {
         console.log(req.body)

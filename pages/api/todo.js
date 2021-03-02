@@ -1,7 +1,9 @@
 import {getTodos} from '../../server/controller/ToDoController'
+import dbConnect from "../../utils/dbConnect";
 
-export default function handler (req, res) {
+export default async function handler (req, res) {
     if (req.method === 'GET') {
+        await dbConnect()
         getTodos().then(todos => {
                 res.status(200).json(todos);
             },

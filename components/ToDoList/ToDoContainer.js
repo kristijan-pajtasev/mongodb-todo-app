@@ -7,7 +7,7 @@ function ToDoContainer() {
     useEffect(() => {
         fetch("/api/todo")
             .then(res => res.json())
-            .then(setToDos)
+            .then(({todos}) => setToDos(todos))
     }, [])
 
     if(!todos) return <div>loading</div>

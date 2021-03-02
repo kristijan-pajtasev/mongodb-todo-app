@@ -1,3 +1,6 @@
+import connect from "../db/connection";
+import ToDo from "../db/models/ToDo";
+
 const todos = [
     {
         text: "hello world",
@@ -13,6 +16,11 @@ const todos = [
 
 export const getTodos = () => {
     return new Promise((res, rej) => {
-        res(todos)
+        connect().then(
+            async connection => {
+                const todos = await ToDo.find({});
+                res({todos})
+            }
+        )
     })
 }

@@ -1,9 +1,10 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
-function CreateTodo() {
+function CreateTodo({cancel}) {
+    const [todoValue, setTodoValue] = useState("");
     function createTodo() {
         const data = {
-            text: "hello world"
+            text: todoValue
         }
         fetch("/api/todo", {
             method: "post",
@@ -12,14 +13,30 @@ function CreateTodo() {
             },
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(data)
-        })
+        }).then(
+            () => { cancel(); }
+        )
     }
 
     useEffect(() => {
         // createTodo()
     }, [])
     return (
-        <div>Create todo</div>
+        <div>
+            <div onClick={cancel}>Close</div>
+            <div>
+                <label>
+                    ToDo:
+                </label>
+            </div>
+            <div>
+                <textarea value={todoValue} onChange={ev => setTodoValue(ev.target.value)}/>
+            </div>
+            <div>
+                <button onClick={createTodo}>Submit</button>
+                <button onClick={cancel}>Cancel</button>
+            </div>
+        </div>
     )
 }
 

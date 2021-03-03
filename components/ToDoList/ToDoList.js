@@ -18,6 +18,10 @@ function ToDoList({todos}) {
         })
     }
 
+    function closeModal() {
+        setShowAddModal(false);
+    }
+
     return (
         <div>
             <ul className={styles.ToDoList}>
@@ -26,7 +30,7 @@ function ToDoList({todos}) {
             {showAddModal && (
                 <Modal
                 close={() => setShowAddModal(false)} >
-                    <CreateTodo />
+                    <CreateTodo cancel={closeModal} />
                 </Modal>
             )}
             <button onClick={() => setShowAddModal(!showAddModal)}
